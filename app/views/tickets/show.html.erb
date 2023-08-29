@@ -1,0 +1,31 @@
+<h1>Ticket Detail</h1>
+<h3>Excavators</h3>
+<table>
+<style>
+      table,
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+</style>
+  <tr>
+    <th>ID</th>
+    <th>Company Name</th>
+    <th>Address</th>
+    <th>Crew on site?</th>
+  </tr>
+  <% @ticket.excavators.all.each do |e| %>
+    <tr>
+    <td><%= e.id %></td>
+    <td><%= e.company_name %></td>
+    <td><%= e.address %></td>
+    <td><%= e.crew_on_site %></td>
+  </tr>
+  <% end %>
+</table>
+
+<h3>Dig site Map</h3>
+
+<%= area_map [{geometry: {type: "Polygon", coordinates:  [@ticket.get_geocode]}}] %>
