@@ -21,4 +21,4 @@ test:
 
 production:
   <<: *default
-  database: geospat_production
+  database: <%= ENV['DATABASE_URL'] %>
