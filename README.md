@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+    3.0.0
+* Rails Version
+    7.0.7
 
-* System dependencies
+* Database
+    PostgreSQL
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* API End-poins
+  POST /api/v1/load
+  Takes a JSON as payload and creates Ticket and Excavator records
+* Pages
+  GET /tickets
+  Index page with TIckets details
+  GET /tickets/:id
+  Show page with specific ticket details with Digsite map
