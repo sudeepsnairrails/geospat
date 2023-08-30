@@ -39,7 +39,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     <td><%= t.request_action %></td>
     <td><%= t.request_due_date_time %></td>
     <td><%= t.primary_service_area_code %></td>
-    <td><%= t.additional_service_area_codes %></td>
+    <td><%= t.additional_service_area_codes.join(', ') %></td>
     <td><%= link_to "Show", ticket_path(t) %></td>
   </tr>
   <% end %>
