@@ -2,30 +2,60 @@
 <h3>Excavators</h3>
 <table>
 <style>
-      table,
-      th,
-      td {
-        padding: 10px;
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+th{
+  text-align: center;
+  background-color: #f2f2f2;
+}
+
+table, th, td {
+  border: 1px;
+  border-style:solid;
+  border-color: #CACFD2 ;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
   <tr>
-    <th>ID</th>
-    <th>Company Name</th>
-    <th>Address</th>
-    <th>Crew on site?</th>
+    <th><b>Request Number</th><td><%= @ticket.request_number %></td>
   </tr>
-  <% @ticket.excavators.all.each do |e| %>
-    <tr>
-    <td><%= e.id %></td>
-    <td><%= e.company_name %></td>
-    <td><%= e.address %></td>
-    <td><%= e.crew_on_site %></td>
+  <tr>
+    <th>Sequence Number</th><td><%= @ticket.sequence_number %></td>
   </tr>
-  <% end %>
+  <tr>
+    <th>Request Type</th><td><%= @ticket.request_type %></td>
+  </tr>
+  <tr>
+    <th>Request Action</th><td><%= @ticket.request_action %></td>
+  </tr>
+  <tr>
+    <th>Response Due Date Time</th><td><%= @ticket.request_due_date_time %></td>
+  </tr>
+  <tr>
+    <th>Primary Service Area Code</th><td><%= @ticket.primary_service_area_code %></td>
+  </tr>
+   <tr>
+    <th>Additional Service Area Codes</th><td><%= @ticket.additional_service_area_codes.join(', ') %></td>
+  </tr>
+  <tr>
+    <th>Excavator - Company Name</th><td><%= @ticket.excavators.first.company_name %></td>
+  </tr>
+  <tr>
+    <th>Excavator - Address</th><td><%= @ticket.excavators.first.address %></td>
+  </tr>
+  <tr>
+    <th>Excavator - Crew on site</th><td><%= @ticket.excavators.first.crew_on_site %></td>
+  </tr>
 </table>
 
 <h3>Dig site Map</h3>
 
-<%= area_map [{geometry: {type: "Polygon", coordinates:  [@ticket.get_geocode]}}] %>
+<%= area_map [{geometry: {type: "Polygon", coordinates:  [@ticket.get_geocode]}, label: "Dig Site"}] %>
